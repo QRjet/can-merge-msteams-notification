@@ -8,7 +8,8 @@ export function createMessageCard(
   repoName: string,
   sha: string,
   repoUrl: string,
-  timestamp: string
+  timestamp: string,
+  prUrl: string
 ): any {
   let avatar_url =
     'https://www.gravatar.com/avatar/05b6d8cc7c662bf81e01b39254f88a48?d=identicon'
@@ -36,9 +37,9 @@ export function createMessageCard(
     potentialAction: [
       {
         '@context': 'http://schema.org',
-        target: [`${repoUrl}/actions/runs/${runId}`],
+        target: [repoUrl],
         '@type': 'ViewAction',
-        name: 'View Workflow Run'
+        name: 'View PR'
       },
       {
         '@context': 'http://schema.org',
