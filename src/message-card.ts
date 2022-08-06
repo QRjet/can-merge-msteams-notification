@@ -37,7 +37,7 @@ export function createMessageCard(
     potentialAction: [
       {
         '@context': 'http://schema.org',
-        target: [repoUrl],
+        target: [prUrl],
         '@type': 'ViewAction',
         name: 'View PR'
       },
