@@ -3085,7 +3085,7 @@ function run() {
             const repoName = params.owner + '/' + params.repo;
             const repoUrl = `https://github.com/${repoName}`;
             const prNumber = core.getInput('pr-number') || '';
-            const prURL = (repoUrl + '/' + prNumber);
+            const prURL = repoUrl + '/pull/' + prNumber;
             const octokit = new rest_1.Octokit({ auth: `token ${githubToken}` });
             const commit = yield octokit.repos.getCommit(params);
             const author = commit.data.author;

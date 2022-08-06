@@ -39,7 +39,7 @@ async function run(): Promise<void> {
     const repoUrl = `https://github.com/${repoName}`
 
     const prNumber = core.getInput('pr-number') || ''
-    const prURL = repoUrl + '/' + prNumber
+    const prURL = repoUrl + '/pull/' + prNumber
 
     const octokit = new Octokit({auth: `token ${githubToken}`})
     const commit = await octokit.repos.getCommit(params)
