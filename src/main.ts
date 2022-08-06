@@ -38,6 +38,9 @@ async function run(): Promise<void> {
     const repoName = params.owner + '/' + params.repo
     const repoUrl = `https://github.com/${repoName}`
 
+    const prNumber = core.getInput('pr-number') || ''
+    const prURL = (repoUrl+'/'+prNumber)
+
     const octokit = new Octokit({auth: `token ${githubToken}`})
     const commit = await octokit.repos.getCommit(params)
     const author = commit.data.author
@@ -52,7 +55,8 @@ async function run(): Promise<void> {
       repoName,
       sha,
       repoUrl,
-      timestamp
+      timestamp,
+      prURL
     )
 
     console.log(messageCard)
